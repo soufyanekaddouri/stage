@@ -17,8 +17,8 @@ if (isset( $_POST['submit']) ) {
 
 		$inputdate = $day.'-'.$month.'-'.$year;
 
-		$inputdateview   = 'De datum die is ingevoerd '.$inputdate;
-		$currentdateview = 'De datum van vandaag: '. $currentdate;
+		$inputdateview   = '<strong>De datum die is ingevoerd:</strong> '.$inputdate;
+		$currentdateview = '<strong>De datum van vandaag:</strong> '. $currentdate;
 
 		// Als de momentele maand zich onder de maand van het verjaardaag bevind,
 		// trek er dan een jaargetal vanaf. Dat geld ook voor het dag nummer.
@@ -28,7 +28,7 @@ if (isset( $_POST['submit']) ) {
 			$result = $currentyear-$year;
 		}
 
-		$ageresult = 'Je bent '.$result. ' jaar oud';
+		$ageresult = '<strong style="color: blue">Je bent '.$result. ' jaar oud</strong>';
 
 
 
@@ -44,42 +44,60 @@ if (isset( $_POST['submit']) ) {
 
 
 
-
 ?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-    	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<title>Leeftijd berekenen</title>
-	</head>
-	<body>
-	<h1>Opdracht 1: Leeftijd berekenen</h1>
-   		<p>
-			Als iemand zijn geboortedatum invult dan dient de leeftijd van de persoon te worden weergegeven
-			Als iemand jarig is zeg dit er dan bij!
-        </p> <br>
+<html lang="en">
+<head>
+	<title>Leeftijd Berekenen</title>
+	<?php include "../includes/headlinks.php" ?>
+</head>
+<body>
+
+<?php include "../includes/header.php" ?>
+
+<div class="container ptb">
+	<div class="row" style="text-align: center">
+		<h1>Opdracht 1: Leeftijd berekenen</h1>
+		<p>
+			Als iemand zijn geboortedatum invult dan dient de leeftijd van de persoon te worden weergegeven <br>
+			Als iemand jarig is vermeld dit er dan bij!
+		</p> <br>
 		<form action="" method="post">
 			<div id="txtTextfield">
-					<label>Dag</label>
-					<input name="day" type="number" id="day" maxlength="2" value="<?= $day ?>"/>
-					<label>Maand</label>
-					<input name="month" type="number" id="month" maxlength="2" value="<?= $month ?>"/>
-					<label>Jaar</label>
-					<input name="year" type="number" id="year" maxlength="4" value="<?= $year ?>"/>
+				<label>Dag</label>
+				<input name="day" type="number" id="day" maxlength="2" value="<?= $day ?>"/>
+				<label>Maand</label>
+				<input name="month" type="number" id="month" maxlength="2" value="<?= $month ?>"/>
+				<label>Jaar</label>
+				<input name="year" type="number" id="year" maxlength="4" value="<?= $year ?>"/>
 			</div> <br>
-            <input name="submit" type="submit" value="Bereken!" />
+			<input name="submit" type="submit" value="Bereken!" />
 		</form> <br> <br>
-	<div class="container">
-		<p>
-			<?= $inputdateview ?> <br>
-			<?= $currentdateview ?> <br>
-			<?= $ageresult ?> <br> <br>
-			<?= $birthdaymessage ?>
-		</p>
+		<div class="container">
+			<p>
+				<?= $inputdateview ?> <br>
+				<?= $currentdateview ?> <br>
+				<?= $ageresult ?> <br> <br>
+				<?= $birthdaymessage ?>
+			</p>
+		</div>
 	</div>
-	</body>
+
+	<hr>
+	<a href="/opdrachten.php">Klik hier om alle opdrachten te bekijken</a>
+</div>
+
+
+
+
+
+<?php include "includes/footerscripts.php" ?>
+</body>
 </html>
+
+
+
 
 
 

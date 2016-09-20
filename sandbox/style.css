@@ -1,0 +1,29 @@
+#loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    height: 1540px;
+    width: 2050px;
+    z-index: 9999;
+    background: url('wallpaper.jpg') no-repeat rgb(249,249,249);
+    background-size: 120%;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+}
+
+
+
+#logo-loader-image {
+    margin-left: 900px;
+    margin-top: 300px;
+    width: 300px;
+}
+
+.transition {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+}
