@@ -7,11 +7,6 @@ session_start();
 $connection = mysqli_connect('localhost', 'root', 'root', 'stage');
 $users = $connection->query("SELECT * FROM users")->fetch_assoc();
 
-foreach ($users as $user) {
-    $sGebruikerControle = $user['username'];
-    $sWachtwoordControle = $user['password'];
-}
-
 $sGebruikerControle = 'admin';
 $sWachtwoordControle = 'voorbeeld';
 
