@@ -1,7 +1,6 @@
 <?php
 
-$connection = mysqli_connect('localhost', 'root', 'root', 'stage');
-
+require_once "../config.php";
 
 // Als er op de registratie knop word geklikt.
 if (isset($_POST['register'])) {
@@ -9,18 +8,20 @@ if (isset($_POST['register'])) {
 
 		$username = $_POST['username'];
 		$password = md5($_POST['password']);
-		$created_at = time();
 		$email = $_POST['email'];
 
+		$query = "INSERT INTO users(username, password, created_at, email) VALUES (:username, :password, NOW(), :email)";
 
-		$connection->query("INSERT INTO users (username, password, created_at, email) VALUES('".$username."','".$password."','".$created_at."','".$email."')");
-		$message = 'Welkom bij Eyeonline, '. ' '.' <strong>'. $_POST['username'] .'</strong>';
+		$database->execute($query, [':username' => $username, ':password' => $password, ':email' => $email]);
+
+		$message = 'Welkom bij Eyeonline, '. ' '.' <strong>'. $username .'</strong>';
+
 	} else {
 		$message = 'Gebruikersnaam en wachtwoord kunnen niet leeg zijn...';
 	}
 }
 
-		$users = $connection->query("SELECT * FROM users");
+		$users = $database->select("SELECT * FROM users");
 
 
 ?>
